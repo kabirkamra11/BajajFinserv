@@ -40,7 +40,7 @@ def hcf_array(arr):
 
 
 def get_ai_answer(q):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={GEMINI_API_KEY}"
     payload = {"contents": [{"parts": [{"text": f"give the answer in exactly one word, dont add punctuation, or dont add any explanation question:{q}"}]}]}
     r = requests.post(url, json=payload, timeout=10)
     r.raise_for_status()
@@ -92,3 +92,4 @@ def bfhl():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 3000))
     app.run(host="0.0.0.0", port=port)
+
